@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    <title>Learning Humanoid Locomotion with Transformers</title>
+    <title>Learning Humanoid Locomotion with In-Context Learning</title>
     <meta name="robots" content="noindex">
 </head>
 <body>
@@ -22,7 +22,7 @@
         <div class="teaser">
             <div class="video_container">
                 <video autoplay muted playsinline loop controls preload="metadata">
-                    <source src="assets/digit/yoga_ball.mp4" type="video/mp4">
+                    <source src="assets/digit/sather_tower_turning_v2.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -83,7 +83,7 @@
     <div class="allegrolower">
         <div class="video_container">
             <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/forward.mp4" type="video/mp4">
+                <source src="assets/digit/stadium_cal_v2.mp4" type="video/mp4">
             </video>
             <div class="caption">
                 <p>Walking forward and backward</p>
@@ -91,12 +91,12 @@
         </div>
         <div class="video_container">
             <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/backward.mp4" type="video/mp4">
+                <source src="assets/digit/grass_backwards.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 
-    <h1>Walks on Different Surfaces</h1>
+    <!-- <h1>Walks on Different Surfaces</h1>
 
     <p>
     A humanoid robot should be able to walk over different terrains. 
@@ -129,68 +129,14 @@
                 <source src="assets/digit/cable.mp4" type="video/mp4">
             </video>
         </div>
-    </div>
+    </div> -->
 
-    <h1>Walks over Uneven Terrains</h1>
-    <p>
-        Next, we consider walking over slopes and small steps.
-        We note that our robot was not trained on steps in simulation.
-        We observe that our controller initially makes a mistake when ascending the step, but quickly corrects and raises the leg higher and faster on the second attempt.
-    </p>
-
-    <br>
-    <div class="allegrolower">
-        <div class="video_container">
-            <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/slope.mp4" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p>Walking over slopes (left) and steps (right)</p>
-            </div>
-        </div>
-        <div class="video_container">
-            <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/stair.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-    <h1>Carries Payloads</h1>
-    <p>
-      We also evaluate the walking behavior when carrying loads of varying mass and shape.
-      Notice that our walking behaviors exhibit an emergent arm swing for balancing.
-      Placing loads on an arm interferes with this and requies the robot to adapt accordingly.
-    </p>
-
-    <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="metadata">
-            <source src="assets/digit/backpack.mp4" type="video/mp4">
-        </video>
-        <video autoplay muted playsinline loop preload="metadata">
-            <source src="assets/digit/trash_bag.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegrolower">
-        <div class="video_container">
-            <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/yorker_bag.mp4" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p>Carrying loads of varying mass and shape</p>
-            </div>
-        </div>
-        <div class="video_container">
-            <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/TJ_bag.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
 
     <h1>Is Robust to Disturbances</h1>
 
     <p>
-        Finally, we test the robustness of policies to sudden external forces. 
-        We push the robot with a wooden stick or throw light cardboard boxes at it.
+        We test the robustness of policies to sudden external forces. 
+        We push the robot with a wooden stick or throw a yoga ball at it.
     </p>
     <div class="teleop">
         <div class="video_container">
@@ -203,7 +149,82 @@
         </div>
         <div class="video_container">
             <video autoplay muted playsinline loop preload="metadata">
-                <source src="assets/digit/mujoco_box.mp4" type="video/mp4">
+                <source src="assets/digit/yoga_ball.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <h1>Adapts to Different Terrains</h1>
+    <p>
+        We consider walking over slopes and small steps.
+        Note that our robot was not trained on steps in simulation.
+        We observe that our controller can adapt to different terrains based on context.
+
+    <br>
+    <div class="allegrolower">
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/downslope_v2.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p>Walking over slopes (left) and steps (right)</p>
+            </div>
+        </div>
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/digit_step_v2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <h1>Carries Payloads</h1>
+    <p>
+      We also evaluate the walking behavior when carrying loads of varying mass and shape.
+      Notice that our walking behaviors exhibit an emergent arm swing for balancing.
+      Placing loads on an arm interferes with this and requies the robot to adapt accordingly.
+    </p>
+
+    <div class="allegrolower">
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/backpack.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p>Carrying loads of varying mass and shape</p>
+            </div>
+        </div>
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/trash_bag.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <h1>Outdoor Deployment</h1>
+    <p>
+        We find that our controller is able to traverse a range of everyday environments including plazas, side walks, tracks, and grass fields
+    </p>
+
+    <div class="allegroupper">
+        <video autoplay muted playsinline loop preload="metadata">
+            <source src="assets/digit/sather_tower_walking.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted playsinline loop preload="metadata">
+            <source src="assets/digit/PSR.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="allegrolower">
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/le_conte.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p>Deployment of our controller in various outdoor environments.</p>
+            </div>
+        </div>
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="metadata">
+                <source src="assets/digit/stop_sign.mp4" type="video/mp4">
             </video>
         </div>
     </div>
